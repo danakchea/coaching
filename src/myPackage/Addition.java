@@ -7,5 +7,4 @@ public class Addition {
 		System.out.println("in the method   sss ");
 		return  a + b;
 	}
-
 }

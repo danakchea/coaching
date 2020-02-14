@@ -1,14 +1,15 @@
 package myPackage;
 
 import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+import java.util.Arrays;
 
-class AdditionTest {
+import org.junit.*;
+
+public class AdditionTest {
 
 	@Test
-	void test() {
+	public void test() {
 		Addition addition = new Addition();
 		
 		
@@ -29,5 +30,25 @@ class AdditionTest {
 		
 		assertEquals(6, test_result);
 	}
+	
+	@Test
+	public void testFibonachi()
+	{
+		Addition addition = new Addition();
+		
+		int[] result = addition.fibonachi(new int[3]);
 
+		int[] excepted = {1,1,2};
+		
+		//compare the value
+		assertArrayEquals(excepted, result);
+		
+		//compare length
+		assertEquals(excepted.length, result.length);
+	}
+	
+	@Test(expected=ArrayIndexOutOfBoundsException.class)
+	public void testFibonachiWithZero() {
+		new Addition().fibonachi(new int[0]);
+	}
 }
